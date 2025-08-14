@@ -389,6 +389,7 @@ table th, table td {
 .up   { color: var(--green); }
 .down { color: var(--red);  }
 
+
 /* Optional: kleiner Zoom-In beim Öffnen */
 @keyframes modalIn{ from{ transform: translate(-50%,-48%) scale(.98); opacity:.8 } to{ transform: translate(-50%,-50%) scale(1); opacity:1 } }
 .modal.open .modal-dialog{ animation: modalIn .15s ease-out both; }
