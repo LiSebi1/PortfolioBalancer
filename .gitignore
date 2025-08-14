@@ -1,0 +1,25 @@
+# Node / Electron
+node_modules/
+dist/
+build/
+out/
+release/
+win-unpacked/
+*.log
+
+# Electron binaries
+*.exe
+*.dmg
+*.app
+*.asar
+
+# Env & System
+.env
+*.local
+.DS_Store
+Thumbs.db
+
+# VS Code (nur Empfehlungen-Dateien erlauben)
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
