@@ -7,19 +7,19 @@ release/
 win-unpacked/
 *.log
 
-# Electron binaries
+# Electron binaries / Artefakte
 *.exe
 *.dmg
 *.app
 *.asar
 
-# Env & System
+# Misc
 .env
 *.local
 .DS_Store
 Thumbs.db
 
-# VS Code (nur Empfehlungen-Dateien erlauben)
+# VS Code (nur diese beiden erlauben)
 .vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json
