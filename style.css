@@ -1,0 +1,395 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* ==== Sidebar: moderne Buttons wie Metric-Karten ==== */
+.sidebar {
+  width: 220px;                    /* etwas luftiger */
+  background: #f3f3f3;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.logo-container {
+  margin-bottom: 20px;
+  text-align: center; /* Bild horizontal zentrieren */
+}
+
+.logo {
+  width: 100px;  /* Logo-Breite anpassen */
+  height: auto;
+  display: inline-block; /* wichtig für zentrierte Anzeige */
+}
+
+/* Basis-Look analog .metric-card (#ecfdf5, runde Ecken, Shadow) */
+.sidebar-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 14px;
+  background: #ecfdf5;             /* wie .metric-card */
+  color: #0f172a;
+  border: 1px solid #e5e7eb;       /* dezente Kante wie bei Cards/Tables */
+  border-radius: 16px;             /* gleiche Rundung wie .metric-card */
+  box-shadow: 0 6px 20px rgba(0,0,0,.06);
+  cursor: pointer;
+  text-align: left;                /* Text linksbündig, wirkt „appiger“ */
+  font-weight: 700;                /* wie die Headlines */
+  transition: background .18s ease, transform .08s ease, border-color .18s ease;
+}
+
+/* Active/aktueller Tab: vollflächig grün und weiße Schrift – wie „selektierte“ Card */
+.sidebar-btn.active {
+  background: #ecfdf5;        /* wie Metric-Card */
+  border-color: #059669;
+  color: #059669;
+  position: relative;
+}
+
+
+/* Hover: leicht dunkler & Micro-Lift */
+.sidebar-btn:hover {
+  background: #dff9ee;
+  transform: translateY(-1px);
+}
+
+/* Tastaturfokus: klarer Ring in App-Grün */
+.sidebar-btn:focus-visible {
+  outline: 2px solid rgba(5,150,105,.35); /* #059669 @ 35% */
+  outline-offset: 2px;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+.stats {
+  display: flex;
+   justify-content: space-between; /* sorgt für Abstand links/rechts */
+  gap: 20px;
+}
+
+.stat-card {
+  background: #e6ffe6;
+  padding: 15px;
+  border-radius: 8px;
+  flex: 1;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th, table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+/* ===== Modern Table & Card ===== */
+:root{
+  --card: #fff;
+  --border: #e5e7eb;         /* Grau 200 */
+  --header: #f8fafc;         /* sehr helles Grau */
+  --text-strong: #0f172a;    /* Slate 900 */
+  --zebra: #fcfcfd;
+  --hover: #f1f5f9;
+  --green: #4ade80;          /* green-400 */
+  --red: #f87171 ;            /* red-400 */
+}
+
+/* Card-Wrapper */
+.card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.06);
+  padding: 14px;
+  margin-top: 20px;
+}
+
+/* Scrollbarer Bereich für schmale Screens */
+.table-wrap{
+  overflow-x: auto;
+  border-radius: 12px;
+}
+
+/* Moderne Tabelle */
+.table-modern{
+  width: 100%;
+  border-collapse: separate;  /* ermöglicht runde Ecken */
+  border-spacing: 0;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+/* Sticky Header */
+.table-modern thead th{
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--header);
+  color: var(--text-strong);
+  text-align: left;
+  font-weight: 700;
+  letter-spacing: .2px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+}
+/* Tabellenkopf im Stil der Sidebar-Buttons */
+.table-modern thead th {
+  background: #ecfdf5; /* gleiches Grün wie Metric-Card */
+  color: #0f172a;      /* gleiche Textfarbe wie Sidebar */
+  font-family: Arial, sans-serif; /* gleiche Schriftart wie Sidebar */
+  font-weight: 700;    /* wie bei Sidebar-Buttons */
+   font-size: 13px; /* gleiche Größe wie Sidebar-Buttons */
+}
+
+/* Zellen */
+.table-modern td{
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+/* Zebra + Hover */
+.table-modern tbody tr:nth-child(odd){ background: var(--zebra); }
+.table-modern tbody tr:hover{
+  background: var(--hover);
+  transition: background .18s ease;
+}
+
+/* Runde Ecken außen */
+.table-modern thead th:first-child{ border-top-left-radius: 12px; }
+.table-modern thead th:last-child{  border-top-right-radius: 12px; }
+.table-modern tbody tr:last-child td:first-child{ border-bottom-left-radius: 12px; }
+.table-modern tbody tr:last-child td:last-child{  border-bottom-right-radius: 12px; }
+
+/* Ausrichtung: Zahlen rechts */
+.table-modern thead th:nth-child(2),
+.table-modern thead th:nth-child(3),
+.table-modern thead th:nth-child(4),
+.table-modern thead th:nth-child(5){ text-align: right; }
+
+/* Bestimmte Überschriften rechtsbündig */
+.table-modern td:nth-child(2),
+.table-modern td:nth-child(3),
+.table-modern td:nth-child(4),
+.table-modern td:nth-child(5){ text-align: right; }
+
+/* Veränderung farbig */
+.delta{ font-weight: 600; }
+.delta.up{ color: var(--green); }
+.delta.down{ color: var(--red); }
+
+/* Mobile: etwas kompakter */
+@media (max-width: 640px){
+  .table-modern td, .table-modern th{ padding: 12px 12px; }
+}
+
+/* ==== Metric-Header (Titel + Dropdown) ==== */
+.metric-card{
+  background: #ecfdf5;              /* leicht grün, wie bei dir zuvor */
+  border-radius: 16px;
+  padding: 18px;
+  margin: 12px 0 20px;
+}
+.metric-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.metric-header h2{
+  margin: 0;
+  font-size: clamp(18px, 2.2vw, 28px);
+  font-weight: 800;
+}
+
+/* ==== Dropdown ==== */
+.dropdown{
+  position: relative;
+}
+.dropdown-trigger{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.dropdown-trigger .chev{ opacity: .7; }
+
+.dropdown-menu{
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  min-width: 240px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.12);
+  padding: 8px;
+  display: none;
+  z-index: 50;
+}
+.dropdown.open .dropdown-menu{ display: block; }
+
+.menu-item{
+  width: 100%;
+  text-align: left;
+  padding: 10px 10px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 600;
+}
+.menu-item:hover{ background: #f1f5f9; }
+
+.menu-sep{
+  height: 1px;
+  background: #e5e7eb;
+  margin: 8px 0;
+}
+
+/* Benutzerdefiniert */
+.custom-range{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 2px;
+}
+.custom-range label{
+  display: grid;
+  gap: 4px;
+  font-size: 12px;
+  color: #475569;
+}
+.custom-range input[type="date"]{
+  padding: 8px 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+.custom-actions{
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+.btn-apply{
+  padding: 8px 12px;
+  border: 1px solid #059669;
+  color: #fff;
+  background: #059669;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn-apply:hover{ filter: brightness(.95); }
+
+/* Zahlen in der Tabelle rechtsbündig (inkl. neuer Spalten & Header) */
+.table-modern thead th:nth-child(2),
+.table-modern thead th:nth-child(3),
+.table-modern thead th:nth-child(4),
+.table-modern thead th:nth-child(5),
+.table-modern thead th:nth-child(6){ text-align: right; }
+
+.table-modern td:nth-child(2),
+.table-modern td:nth-child(3),
+.table-modern td:nth-child(4),
+.table-modern td:nth-child(5),
+.table-modern td:nth-child(6){ text-align: right; }
+
+.metrics-row {
+  display: flex;
+  gap: 20px;
+}
+
+.metrics-row .metric-card {
+  flex: 1;
+}
+@media (max-width: 768px) {
+  .metrics-row {
+    flex-direction: column;
+  }
+}
+
+/* === Primär-/Sekundär-Buttons === */
+.btn-primary{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid #059669;
+  background: #059669;
+  color:#fff; font-weight:700; cursor:pointer;
+  box-shadow: 0 6px 20px rgba(5,150,105,.25);
+  margin-top:16px;
+}
+.btn-primary:hover{ filter:brightness(.95); }
+
+.btn-secondary{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border:1px solid #e5e7eb; background:#fff; color:#0f172a;
+  font-weight:700; cursor:pointer;
+}
+
+/* === Modal === */
+.modal{ position: fixed; inset: 0; display: none; z-index: 100; }
+.modal.open{ display: block; }
+
+.modal-backdrop{
+  position: absolute; inset: 0; background: rgba(15,23,42,.45); /* dunkel, leicht transparent */
+}
+
+.modal-dialog{
+  position: absolute; left:50%; top:50%; transform: translate(-50%,-50%);
+  width: min(560px, 92vw);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+  overflow: hidden;
+}
+
+.modal-header{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 14px 16px; background: var(--header); border-bottom:1px solid var(--border);
+}
+.modal-header h3{ margin:0; font-size:18px; font-weight:800; color:var(--text-strong); }
+.modal-close{
+  background: transparent; border: none; font-size: 20px; line-height: 1;
+  cursor: pointer; color:#475569; padding: 4px 6px; border-radius: 8px;
+}
+.modal-close:hover{ background:#f1f5f9; }
+
+.modal-body{ padding: 16px; min-height: 80px; }
+.modal-actions{
+  display:flex; justify-content:flex-end; gap:10px;
+  padding: 12px 16px; border-top:1px solid var(--border); background:#fff;
+}
+
+.up   { color: var(--green); }
+.down { color: var(--red);  }
+
+/* Optional: kleiner Zoom-In beim Öffnen */
+@keyframes modalIn{ from{ transform: translate(-50%,-48%) scale(.98); opacity:.8 } to{ transform: translate(-50%,-50%) scale(1); opacity:1 } }
+.modal.open .modal-dialog{ animation: modalIn .15s ease-out both; }
+

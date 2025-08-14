@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bitpanda Rebalancing</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <div class="logo-container">
+        <img src="Logo.png" alt="Logo" class="logo">
+      </div>
+      <button class="sidebar-btn active">Dashboard</button>
+      <button class="sidebar-btn">Assets</button>
+      <button class="sidebar-btn">Rebalancing</button>
+      <button class="sidebar-btn">Einstellungen</button>
+    </nav>
+
+    <!-- Hauptinhalt -->
+    <main class="content">
+      <h1>Dashboard</h1>
+      <div class="stats">
+        <div class="metric-card">
+          <div class="metric-header">
+            <h2>Portfolio Wert</h2>
+          </div>
+          <div class="metric-value" id="portfolioValue"></div>
+        </div>
+        <!-- Gewinn/Verlust Card -->
+        <div class="metric-card">
+          <div class="metric-header">
+            <h2>Gewinn/Verlust</h2>
+            <!-- Dropdown -->
+            <div class="dropdown" id="pl-range">
+              <button class="dropdown-trigger" id="pl-trigger" aria-haspopup="true" aria-expanded="false">
+                Heute
+                <svg width="12" height="12" viewBox="0 0 20 20" aria-hidden="true" class="chev">
+                  <path d="M5 7l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </button>
+
+              <div class="dropdown-menu" id="pl-menu" role="menu" aria-labelledby="pl-trigger">
+                <button type="button" class="menu-item" data-range="today">Heute</button>
+                <button type="button" class="menu-item" data-range="yesterday">Gestern</button>
+                <button type="button" class="menu-item" data-range="weekly">Wöchentlich</button>
+                <button type="button" class="menu-item" data-range="monthly">Monatlich</button>
+                <button type="button" class="menu-item" data-range="ytd">YTD</button>
+                <button type="button" class="menu-item" data-range="yearly">Jährlich</button>
+                <button type="button" class="menu-item" data-range="all">Seit Beginn</button>
+
+                <div class="menu-sep" role="separator"></div>
+
+                <!-- Benutzerdefiniert -->
+                <form id="pl-custom" class="custom-range" role="none">
+                  <label>
+                    <span>Von</span>
+                    <input type="date" id="pl-from" required>
+                  </label>
+                  <label>
+                    <span>Bis</span>
+                    <input type="date" id="pl-to" required>
+                  </label>
+                  <div class="custom-actions">
+                    <button type="submit" class="btn-apply">Anwenden</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="metric-value" id="profitLoss">234.56 €</div>
+                </div>
+
+        </div>
+
+    <div class="card">
+  <div class="table-wrap">
+    <table id="assetTable" class="table-modern">
+      <thead>
+        <tr>
+          <th>Asset</th>
+          <th>Menge</th>
+          <th>Wert</th>
+          <th>Ist/Soll %</th>
+          <th>Abweichung</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- wird durch renderer.js gefüllt -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Button unterhalb der Tabelle -->
+  <button id="btn-adjust" class="btn-primary">Portfoliogewichtung anpassen</button>
+
+  <!-- Modal (vorerst ohne Inhalt) -->
+  <div id="modal-adjust" class="modal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-dialog" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+      <div class="modal-header">
+        <h3 id="modal-title">Portfoliogewichtung anpassen</h3>
+        <button class="modal-close" aria-label="Schließen">&times;</button>
+      </div>
+      <div class="modal-body">
+        <!-- später: Einstellungen -->
+      </div>
+      <div class="modal-actions">
+        <button class="btn-secondary modal-close">Schließen</button>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+    </main>
+  </div>
+
+<script type="module" src="./renderer.js"></script>
+</body>
+</html>
