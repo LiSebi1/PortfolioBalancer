@@ -1,7 +1,7 @@
 {
   "author": "Sebastian Linecker",
-  "description": "Rebalancing-Tool für Bitpanda (Electron + Vite)",
-  "name": "bitpanda-balancer",
+  "description": "Rebalancing-Tool",
+  "name": "portfolio-balancer",
   "version": "0.1.0",
   "private": true,
   "main": "electron/main.cjs",
